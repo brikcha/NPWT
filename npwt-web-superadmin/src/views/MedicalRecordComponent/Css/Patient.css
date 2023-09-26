@@ -1,0 +1,23 @@
+.cardDetails{
+    background-color: #4169E1;
+     color: white
+}
+.cardIcons{
+    position:absolute;
+    right:20px
+}
+.cardIcons .iconCard{
+    border:3px solid;
+    border-radius:50%;
+    padding:5px;
+    width:60px !important;
+    height:60px;
+    margin:-10px 5px;
+    width:50px;
+    color: white !important;
+}
+
+.cardIcons .iconCard:hover{
+    width:63px !important;
+    height:63px;
+}

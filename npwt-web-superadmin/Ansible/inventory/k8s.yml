@@ -1,0 +1,58 @@
+
+---
+- name: npwt-super-admin-Dep
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+    - name: Create deployment
+      k8s:
+        api_version: apps/v1
+        kind: Deployment
+        name: npwt-super--deployment
+        namespace: npwt
+        definition:
+          metadata:
+            labels:
+              app: my-app
+          spec:
+            replicas: 1
+            selector:
+              matchLabels:
+                app: my-app
+            template:
+              metadata:
+                labels:
+                  app: my-app
+              spec:
+                containers:
+                  - name: npwt-super-admin
+                    image: balkiss7/npwt-super-admin:v1.0.1-prod
+                    imagePullPolicy: Always
+                    ports:
+                      - containerPort: 3000
+                    env:
+                      - name: REACT_APP_CLIENT_URL
+                        value: "http://185.192.96.18:32516"
+                      - name: REACT_APP_SUPER_URL
+                        value: "http://185.192.96.18:31952"
+                      - name: REACT_APP_BACKEND_URL
+                        value: "http://185.192.96.18:31159"
+    - name: Create service
+      k8s:
+        api_version: v1
+        kind: Service
+        name: npwt-super-admin-service
+        namespace: npwt
+        definition:
+          metadata:
+            labels:
+              app: my-app
+          spec:
+            selector:
+              app: my-app
+            ports:
+              - protocol: TCP
+                port: 8885
+                targetPort: 3000
+            type: LoadBalancer

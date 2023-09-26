@@ -1,0 +1,24 @@
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .chat-bubble {
+    border-radius: 25px;
+    padding: 7px 20px 0 ;
+    margin-bottom: 10px;
+    max-width: 80%;
+    color:white;
+    font-weight:700;
+  }
+  
+  .right {
+    align-self: flex-end;
+    background-color: #0066a1;
+  }
+  
+  .left {
+    align-self: flex-start;
+    background-color: #3daded;
+  }

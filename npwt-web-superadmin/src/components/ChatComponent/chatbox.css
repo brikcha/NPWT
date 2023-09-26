@@ -1,0 +1,138 @@
+.ChatApp {
+    margin:0 auto;
+    box-shadow: 0 0 20px rgba(1, 35, 121, 0.1);
+    padding: 0;
+  }
+  
+ .ChatApp .title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    display: flex;
+    background-color: #4169d6;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  .chatBox{
+    padding: 15px;
+  }
+  .messages {
+    margin-bottom: 20px;
+    height: 300px;
+    overflow-y:auto;
+  }
+  .imgChat{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+  }
+  .imgChat2{
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      margin-right: 10px;
+  }
+  .message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .message-text {
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    align-self: flex-start;
+  }
+  
+  .message-user {
+    font-size: 0.8rem;
+    color: gray;
+    align-self: flex-end;
+  }
+  
+  .formChat {
+    display: flex;
+    margin-top: 20px;
+  }
+  input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    caret-color: rgb(8, 52, 197);
+  }
+  input[type="text"]:focus {
+    box-shadow: 0 0 5px rgb(8, 52, 197);
+  }
+.ChatApp button[type="submit"] {
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+
+  
+.ChatApp  button[type="submit"]:hover {
+    background-color: #388e3c;
+  }
+
+.connexion-btn{
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    background-color: #3bd243;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.connexion-btn:hover {
+  background-color: #388e3c;
+}
+  .messages::-webkit-scrollbar-track{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+  }
+  
+  .messages::-webkit-scrollbar{
+    width: 10px;
+    background-color: #F5F5F5;
+  }
+  
+  .messages::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-image: -webkit-gradient(linear,
+                       left bottom,
+                       left top,
+                       color-stop(0.44, rgb(122,153,217)),
+                       color-stop(0.72, rgb(73,125,189)),
+                       color-stop(0.86, rgb(28,58,148)));
+  }
+  
+  .title-table{
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #dee2e6 !important;
+  }
+  .td-image{
+    width: 40px;
+  }  
+  .td-table{
+    padding:0.75rem;
+    border-bottom:1px solid #dee2e6;
+    font-weight:bold;
+    text-transform:capitalize;
+  }

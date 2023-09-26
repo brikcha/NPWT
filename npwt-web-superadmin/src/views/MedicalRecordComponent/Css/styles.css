@@ -1,0 +1,99 @@
+  .Papper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  .Papper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.buttonissuccess {
+  background-color: #007bff; /* update button background color */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.buttonissuccess:hover {
+  background-color: #1BA1D8; /* update button hover color */
+}
+.Papper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f0f8ff;
+  }
+  
+  form {
+	width: 100%;
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+ 
+ 
+  
+  .buttonissuccess {
+	background-color: #007bff;
+	color: #fff;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+  }
+  
+  .buttonissuccess:hover {
+	background-color: #1BA1D8;
+  }
+  
+  .formtitle {
+	color: #007bff;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align: center;
+  }
+  
+  .formerror {
+	color: #ff0000;
+	font-size: 14px;
+	margin-bottom: 10px;
+  }
+  
+  .services-heading {
+	font-size: 24px;
+  }
+  .btn-hover:hover {
+	background-color: #007bff;
+	color: #fff;
+  }
+  .yellow-button {
+	background-color: rgb(237, 226, 14);
+  }
+  .purple-button {
+	background-color:whitesmoke;
+  }
+  
+  
+  
