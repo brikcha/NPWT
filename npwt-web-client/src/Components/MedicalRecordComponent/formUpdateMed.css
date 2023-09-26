@@ -1,0 +1,87 @@
+.iconMed {
+    padding-right: 10px;
+    font-size: 30px;
+}
+
+.cardMD {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    background-color: #bacff37f;
+}
+.card .card-header {
+    font-weight: 500;
+}
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(70, 143, 246, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    font-size: 20px;
+}
+.form-control, .dataTable-input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color:black;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .cardRes{
+        width: 100%;
+        
+    }
+}
+
+
+@media screen and (min-width: 1000px) and (max-width: 1200px) {
+    .cardRes{
+        width: 90%;
+        margin-left: 15%;
+        
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1500px) {
+    .cardRes{
+        width: 90%;
+        margin-left: 10%;
+        
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .cardRes{
+        width: 100%;
+       
+    }
+    
+      }
+
+/* @media screen and (min-width: 1500px) {
+    .cardMD{
+        width: 110%;
+        margin-left: 5%;
+    }
+
+      }
+
+@media screen and (min-width: 1000px) and (max-width: 1500px) {
+        .cardMD{
+            width: 90%;
+            margin-left: 15%;
+        }
+    } */

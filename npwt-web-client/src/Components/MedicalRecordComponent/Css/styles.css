@@ -1,0 +1,121 @@
+	.pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 20px;
+		font-family: 'Helvetica Neue', sans-serif;
+	}
+	.pagination li {
+		display: inline-block;
+		margin-right: 5px;
+	}	
+	.pagination li a {
+		display: block;
+		padding: 10px 15px;
+		border: 1px solid #007bff;
+		color: #007bff;
+		text-decoration: none;
+		transition: all 0.3s ease;
+	}
+	.pagination li a:hover {
+		background-color: #007bff;
+		color: #fff;
+	}
+	.pagination li.active a {
+		background-color: #007bff;
+		color: #fff;
+		border-color: #007bff;
+		pointer-events: none;
+	}
+	.pagination li.disabled a {
+		color: #ccc;
+		pointer-events: none;
+	}
+	.pagination li.break a {
+		font-weight: bold;
+		color: #007bff;
+	}
+	.Papper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	.Papper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	form {
+		width: 90%;
+		max-width: 500px;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	}
+	.buttonissuccess {
+		background-color: #007bff; 
+		color: #fff;
+		padding: 10px;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.buttonissuccess:hover {
+		background-color: #1BA1D8; 
+	}
+	.Papper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #f0f8ff;
+	}
+	form {
+		width: 90%;
+		max-width: 500px;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	}
+	.buttonissuccess {
+		background-color: #007bff;
+		color: #fff;
+		padding: 10px;
+		border: none;
+		border-radius: 5px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+	.buttonissuccess:hover {
+		background-color: #1BA1D8;
+	}
+	.formtitle {
+		color: #007bff;
+		font-size: 24px;
+		font-weight: bold;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+	.formerror {
+		color: #ff0000;
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+	.services-heading {
+		font-size: 24px;
+	}
+	.btn-hover:hover {
+		background-color: #007bff;
+		color: #fff;
+	}
+	.yellow-button {
+		background-color: rgb(237, 226, 14);
+	}
+	.purple-button {
+		background-color:whitesmoke;
+	}

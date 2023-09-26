@@ -1,0 +1,203 @@
+def getGitBranchName() {
+    return scm.branches[0].name
+}
+def branchName
+def targetBranch
+
+pipeline {
+    agent any
+    environment {
+        DOCKERHUB_USERNAME = 'balkiss7'
+        DEV_TAG = "${DOCKERHUB_USERNAME}/npwt-front:v1.0.1--dev"
+        STAGING_TAG = "${DOCKERHUB_USERNAME}/npwt-front:v1.0.1-staging"
+        PROD_TAG = "${DOCKERHUB_USERNAME}/npwt-front:v1.0.1-prod"
+        TAG="npwt-front:v1.0.1-staging"
+    }
+    parameters {
+        string(name: 'BRANCH_NAME', defaultValue: "${scm.branches[0].name}", description: 'Git branch name')
+        string(name: 'CHANGE_ID', defaultValue: '', description: 'Git change ID for merge requests')
+        string(name: 'CHANGE_TARGET', defaultValue: '', description: 'Git change ID for the target merge requests')
+    }
+    stages {
+        stage('branch name') {
+            steps {
+                script {
+                    branchName = params.BRANCH_NAME
+                    echo "Current branch name: ${branchName}"
+                }
+            }
+        }
+
+        stage('target branch') {
+            steps {
+                script {
+                    targetBranch = branchName
+                    echo "Current branch name: ${targetBranch}"
+                }
+            }
+        }
+
+        stage('Github') {
+            steps {
+                git branch : branchName,
+                url: 'https://github.com/ipactconsult/npwt-client-web.git',
+                credentialsId: 'a7c3a0c0-3278-4373-8f20-8f19305f03ab'
+                echo "Current branch name: ${branchName}"
+                echo "Current branch name: ${targetBranch}"
+            }
+        }
+
+        stage('Clean Build') {
+            steps {
+                sh 'rm -rf node_modules'
+            }
+        }
+
+        stage('BUILD') {
+            when {
+                expression {
+                    (params.CHANGE_ID != null)  && ((targetBranch == 'develop') || (targetBranch == 'main') || (targetBranch == 'staging')  || (targetBranch == 'Devops'))
+                }
+            }
+            steps {
+                nodejs('nodeJSInstallationName') {
+                     sh 'npm  install --legacy-peer-deps'
+                     echo 'Build stage done'
+                }
+            }
+        }
+
+    //    stage('TEST') {
+     //       when {
+      //          expression {
+       //             (params.CHANGE_ID != null)  && ((targetBranch == 'develop') || (targetBranch == 'main') || (targetBranch == 'staging') || (targetBranch == 'Devops'))
+        //        }
+        //    }
+         //   steps {
+           //     nodejs('nodeJSInstallationName') {
+              //      sh 'npm run test'
+            //        echo 'test stage done'
+               // }
+            //}
+        //}
+    //     stage('Static Test with Sonar') {
+	// 	    when {
+    //             expression {
+    //                 (params.CHANGE_ID != null) && ((targetBranch == 'develop') || (targetBranch == 'main') || (targetBranch == 'staging') || (targetBranch == 'Devops'))
+    //             }
+    //         }
+    //          steps{
+    //             nodejs('nodeJSInstallationName'){
+    //                 sh 'node sonar-project.js'
+    //             }
+    //         }
+	// } 
+        stage('Build Docker') {
+            when { 
+                expression {
+                    (params.CHANGE_ID != null)  && ((targetBranch == 'main') || (targetBranch == 'staging') || (targetBranch == 'develop') || (targetBranch == 'Devops'))
+                }
+            }
+            steps { 
+                script {  
+sh 'ls'
+                // sh ' cd /var/jenkins_home/workspace/NPWT_Back_Devops/'
+                    if (targetBranch == 'staging') {
+                        sh "docker build -t ${STAGING_TAG} ."
+                    } else if (targetBranch == 'main') {
+                        sh "docker build -t ${PROD_TAG} ."
+                    } else if (targetBranch == 'Devops') {
+                        sh "docker build -t ${DEV_TAG} ."
+                    }//else if (targetBranch == 'Devops') {
+                       // sh "docker build -t ${STAGING_TAG}-test /backend/backend/Dockerfile"
+                   // }
+                }
+            }
+        }
+
+        stage('Docker Login'){
+    when {
+        expression {
+          (params.CHANGE_ID != null)  && ((targetBranch == 'main') || (targetBranch == 'staging') || (targetBranch == 'develop') || (targetBranch == 'Devops'))
+        }
+    }
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'npwt', usernameVariable: 'DOCKERHUB_USERNAME', passwordVariable: 'DOCKERHUB_PASSWORD')]) {
+                sh "docker login -u ${DOCKERHUB_USERNAME} -p ${DOCKERHUB_PASSWORD}"
+    }
+  }
+
+        }
+
+stage('Docker Push'){
+when {
+        expression {
+          (params.CHANGE_ID != null)  && ((targetBranch == 'main') || (targetBranch == 'staging') || (targetBranch == 'develop') || (targetBranch == 'Devops'))
+        }
+    }
+            steps{
+                sh 'docker push $DOCKERHUB_USERNAME/npwt-front --all-tags '
+            }
+        }
+stage('Remove Containers') {
+when {
+        expression {
+          (params.CHANGE_ID != null)  && ((targetBranch == 'main') || (targetBranch == 'staging') || (targetBranch == 'develop') || (targetBranch == 'Devops'))
+        }
+    }
+    steps {
+        sh '''
+        container_ids=$(docker ps -q --filter "publish=8883/tcp")
+        if [ -n "$container_ids" ]; then
+            echo "Stopping and removing containers..."
+            docker stop $container_ids
+            docker rm $container_ids
+        else
+            echo "No containers found using port 8883."
+        fi
+        docker rmi -f $(docker images -q $DOCKERHUB_USERNAME/npwt-front)
+        '''
+    }
+}
+        stage('Deploy to Prod') {
+            when {
+                expression {
+(params.CHANGE_ID != null)  && (targetBranch == 'main')
+}
+            }
+           steps {
+            sh "sudo ansible-playbook Ansible/inventory/k8s.yml -i Ansible/inventory/host.yml"
+            //sh "docker pull ${PROD_TAG}"
+            //sh "docker run -d --name npwtf-pod -p 8883:3000 ${PROD_TAG}"
+  }
+}
+
+
+stage('Deploy to Dev') {
+            when {
+                expression {
+(params.CHANGE_ID != null)  && (targetBranch == 'Devops')
+}
+            }
+            steps {
+                sh "sudo ansible-playbook Ansible/inventory/k8s.yml -i Ansible/inventory/host.yml"
+                //sh "docker pull ${DEV_TAG}"
+                //sh "docker run -d --name npwtf-dev -p 8883:3000 ${DEV_TAG}"
+            }
+        }
+
+        stage('Deploy to Staging') {
+            when {
+                expression {
+(params.CHANGE_ID != null)  && (targetBranch == 'staging')
+}
+            }
+            steps {
+                //sh "docker pull ${STAGING_TAG}"
+                //sh "docker run -d --name npwtf-staging -p 8883:3000 ${STAGING_TAG}"
+                sh "sudo ansible-playbook Ansible/inventory/k8s.yml -i Ansible/inventory/host.yml"
+            }
+        }
+       
+    }
+}

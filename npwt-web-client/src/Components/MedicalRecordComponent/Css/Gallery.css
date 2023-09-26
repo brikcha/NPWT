@@ -1,0 +1,256 @@
+.swiper_container {
+    height: 32rem;
+    padding: 2rem 0;
+    position: relative;
+  }
+  
+  .swiper-slide {
+    width: 27rem;
+    height: 25rem;
+    position: relative;
+  }
+  
+  @media (max-width: 500px) {
+    .swiper_container {
+      height: 47rem;
+    }
+    .swiper-slide {
+      width: 28rem !important;
+      height: 40rem !important;
+    }
+    .swiper-slide img {
+      width: 18rem !important;
+      height: 30rem !important;
+    }
+  }
+  
+  .swiper-slide img {
+    width: 28rem;
+    height: 30rem;
+    border-radius: 2rem;
+    object-fit: cover;
+    
+  }
+  
+  .swiper-slide-shadow-left,
+  .swiper-slide-shadow-right {
+    display: none;
+  }
+  
+  .slider-controler {
+    position: relative;
+    bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  
+  .slider-controler .swiper-button-next {
+    left: 68% !important;
+    top:-20px;
+    transform: translateX(-58%) !important;
+  }
+  
+  @media (max-width: 990px) {
+    .slider-controler .swiper-button-next {
+      left: 70% !important;
+      transform: translateX(-70%) !important;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .slider-controler .swiper-button-next {
+      left: 80% !important;
+      transform: translateX(-80%) !important;
+      background: #000;
+    }
+  }
+  .slider-controler .swiper-button-prev {
+    left: 32% !important;
+    top:-20px;
+    transform: translateX(-30%) !important;
+  }
+  @media (max-width: 990px) {
+    .slider-controler .swiper-button-prev {
+      left: 30% !important;
+      transform: translateX(-30%) !important;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .slider-controler .swiper-button-prev {
+      left: 20% !important;
+      transform: translateX(-20%) !important;
+    }
+  }
+  
+  .slider-controler .slider-arrow {
+    background: var(--white);
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    left: 42%;
+    transform: translateX(-42%);
+    filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+  }
+  
+  .slider-controler .slider-arrow ion-icon {
+    font-size: 2rem;
+    color: #222224;
+  }
+  
+  .slider-controler .slider-arrow::after {
+    content: '';
+  }
+  
+  .swiper-pagination .swiper-pagination-bullet {
+    filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
+  }
+  
+  .swiper-pagination .swiper-pagination-bullet-active {
+    background: var(--primary);
+  }
+  /* Add this style for the overlay */
+/* Add this style for the overlay */
+.swiper-slide img {
+  position: relative;
+}
+/* Add this style to create the darkening overlay */
+.swiper-slide {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Darkening overlay */
+ 
+  
+  .swiper-slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for the opacity change */
+    pointer-events: none; /* Allow clicks on images beneath the overlay */
+  }
+  
+  /* Show the darkening overlay on the images that are not currently in focus */
+  .swiper-slide:not(.swiper-slide-active)::after {
+    opacity: 1;
+  }
+.unlocked-image {
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+
+
+.inactive-slide {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.dateImg{
+  position:absolute;
+  z-index:999;
+  bottom:10px;
+  left:83%;
+  font-size:16px;
+  font-weight:bold;
+  color:white 
+}
+.numberImg{
+  position:absolute;
+  z-index:999;
+  left:93%;
+  width: 40px;
+  padding: 8px 5px;
+  text-align: center;
+  background-color:rgb(71, 71, 209);
+  color:white;
+  font-size:16px;
+  font-weight:bold
+}
+
+
+/* Gallery container */
+.swiper_container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Individual slide */
+.image-container {
+  position: relative;
+}
+
+/* Zoom indicator and icon */
+.zoom-indicator {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.zoom-indicator:hover {
+  transform: scale(1.05);
+}
+.btn-zoom{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.zoom-icon {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 24px;
+  padding: 8px;
+  border-radius: 50%;
+}
+.download-icon {
+  position: absolute;
+  top: 55px;
+  right: 15px;
+  background-color: rgb(255, 255, 255);
+  color: #1e088e;
+  border: none;
+  padding:5px 10px ;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 18px;
+}
+.react-image-zoom-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.minimize-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: rgb(255, 255, 255);
+  color: #1e088e;
+  border: none;
+  padding:5px 10px ;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 18px;
+}

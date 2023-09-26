@@ -1,0 +1,33 @@
+{
+    "Plaies Primaires": [
+      {
+        "Pansement Adhésif": "Les pansements adhésifs, tels que les bandes adhésives ou les pansements adhésifs stériles, sont souvent utilisés pour couvrir des plaies primaires. Ils maintiennent la plaie propre et protégée."
+      },
+      {
+        "Pansement non-adhérent": "Pour les plaies plus sensibles ou les plaies où l'adhésif peut provoquer des douleurs, des pansements non-adhérents, tels que des compresses stériles, peuvent être utilisés."
+      }
+    ],
+    "Plaies en Phase de Cicatrisation Moyenne": [
+      {
+        "Pansements Hydrocolloïdes": "Les pansements hydrocolloïdes sont efficaces pour les plaies en phase de cicatrisation moyenne. Ils favorisent un environnement humide favorable à la cicatrisation et peuvent être portés pendant plusieurs jours."
+      },
+      {
+        "Pansements en Mousse": "Les pansements en mousse sont utiles pour absorber l'excès d'exsudat (liquide de la plaie) tout en maintenant un environnement de cicatrisation humide."
+      }
+    ],
+    "Plaies Avancées": [
+      {
+        "Pansements Hydrogels": "Les pansements hydrogels sont souvent utilisés pour les plaies avancées ou chroniques. Ils maintiennent un environnement humide et sont particulièrement utiles pour les plaies sèches ou nécrotiques."
+      },
+      {
+        "Pansements Alginate": "Les pansements à base d'alginate sont conçus pour les plaies présentant une grande quantité d'exsudat. Ils favorisent l'absorption de l'excès de liquide."
+      },
+      {
+        "Pansements à l'Argent": "Les pansements à l'argent ont des propriétés antimicrobiennes et peuvent être utilisés pour les plaies infectées."
+      },
+      {
+        "Pansements au Charbon Actif": "Les pansements au charbon actif sont parfois utilisés pour les plaies malodorantes ou pour réduire les odeurs."
+      }
+    ]
+  }
+  

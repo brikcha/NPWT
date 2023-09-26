@@ -1,0 +1,44 @@
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: 'Helvetica Neue', sans-serif;
+  }
+  .pagination li {
+	display: inline-block;
+	margin-right: 5px;
+  }
+  
+  .pagination li a {
+	display: block;
+	padding: 10px 15px;
+	border: 1px solid #007bff;
+	color: #007bff;
+	text-decoration: none;
+	transition: all 0.3s ease;
+  }
+  
+  .pagination li a:hover {
+	background-color: #007bff;
+	color: #fff;
+  }
+  
+  .pagination li.active a {
+	background-color: #007bff;
+	color: #fff;
+	border-color: #007bff;
+	pointer-events: none;
+  }
+  
+  .pagination li.disabled a {
+	color: #ccc;
+	pointer-events: none;
+  }
+  
+  .pagination li.break a {
+	font-weight: bold;
+	color: #007bff;
+  }
+  
+  

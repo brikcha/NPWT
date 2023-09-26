@@ -1,0 +1,10 @@
+.nodata{
+    width:25%;
+    height:40%
+}
+@media (max-width: 1200px) {
+    .nodata{
+        width:40%;
+        height:60%
+    }
+}

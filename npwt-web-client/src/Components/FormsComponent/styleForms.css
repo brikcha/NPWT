@@ -1,0 +1,10 @@
+@media only screen and  (max-width: 1000px)  { /* lg size starts at 992px */
+    .styleCard {
+      margin-left: 40%;
+     
+    }
+  }
+
+.styleCard{
+  padding-left: 150px;
+}
